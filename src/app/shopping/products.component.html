@@ -1,0 +1,47 @@
+<!-- <h3>List Of Products</h3>
+
+<div class="card-deck">
+  <div class="card">
+    <div class="card-header bg-warning">
+      <b> Product Name</b>
+    </div>
+
+    <div class="card-body">
+      Price:
+      <br/> Description:
+    </div>
+
+    <div class="card-footer">
+      <button class='btn btn-primary'>Add to cart</button>
+    </div>
+  </div>
+
+</div> -->
+<!-- changed to  -->
+<h3>List Of Products</h3>
+<!-- Current Date and Time: {{curDate | date}} -->
+Current Date and Time: <span class='badge badge-primary'>{{curDate | date: "MM/dd/yyyy"}}</span>
+<br/>
+<div style='z-index: 10; position: absolute;  right: 0;  top: 35px; margin-right: 10px;'>
+  Search: <input type="text" [(ngModel)]='queryString'></div>
+<br/>
+
+<div class="card-deck">
+    <div class="card" *ngFor="let product of products | searchData: queryString : 'name'">
+      <div class="card-header bg-warning">
+        <b>{{ product.name  }}</b>
+      </div>
+  
+      <div class="card-body">
+        <b>Price</b>: {{ product.price | currency: "INR" }}
+        <br/> <b>Description</b>: {{ product.description }}
+      </div>
+  
+      <div class="card-footer">
+        <button class='btn btn-primary' (click)="addToCart(product)">Add to cart</button>
+      </div>
+    </div>
+    <!-- <div *ngIf="products.length == 0">
+        <span class="btn-danger">No products found ! Please change the seach text !</span>
+    </div> -->
+  </div>

@@ -1,0 +1,34 @@
+<h3>Cart Items are 
+  <span class="badge badge-primary">{{cartItems.length}}</span>
+</h3>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Amount</th>
+  </tr>
+
+  <tr *ngFor="let item of cartItems; let itemIndex = index">
+    <td><button class="btn btn-danger btn-sm" (click)="deleteItem(itemIndex)">X</button> {{ item.name}}</td>
+    <!-- <td>{{ item.name}}</td> -->
+    <td>{{ item.price}}</td>
+    <!-- <td>{{ item.quantity}}</td> -->
+    <td><input type="number" [(ngModel)]="item.quantity" style="width:50px;" ></td>
+    <td>{{ item.price * item.quantity}}</td>
+  </tr>
+
+  <tr *ngIf="cartItems.length == 0">
+    <td colspan="4" class="btn-danger">No items found</td>
+  </tr>
+
+  <tr>
+    <td colspan="3">
+      Total Amount
+    </td>
+    <td>{{ calculateTotalAmount() }}</td>
+  </tr>
+</table>
+
+<!-- table>tr>th*4 -->

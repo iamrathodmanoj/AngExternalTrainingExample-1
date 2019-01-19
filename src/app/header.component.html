@@ -1,0 +1,40 @@
+<nav class="navbar bg-dark navbar-dark navbar-expand-sm">
+    <!-- navbar class from botstrap, bg-dark : for background dark, navbar-dark: for content to be visible over black background
+    navbar-expand-sm: to display even in small screens
+    -->
+    <!-- <a href="#" class="navbar-brand">My App</a> -->
+    <a href="#" class="navbar-brand">{{appTitle}}</a>
+    <ul class="navbar-nav mr-auto">
+        <!-- mr-auto: should add a margin right - auto -->
+        <li class="navbar-item">
+            <!-- <a class="nav-link" href="#">Home</a> -->
+            <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="navbar-item">
+            <!-- <a class="nav-link" href="#">Sign In</a> -->
+            <a class="nav-link" routerLink="/signin">Sign In</a>
+        </li>
+        <li class="navbar-item">
+            <!-- <a class="nav-link" href="#">Quick SIgn Up</a> -->
+            <a class="nav-link" routerLink="/signup">Sign Up</a>
+        </li>
+        <li class="navbar-item">
+            <!-- <a class="nav-link" href="#">Shopping List</a> -->
+            <a class="nav-link" routerLink="/list">Shopping List</a>
+        </li>
+        <li class="navbar-item">
+            <a class="nav-link" routerLink="/categories">Categories</a>
+        </li>
+    </ul>
+    <!-- <span class="navbar-text">
+        Welcome User
+    </span> -->
+    <span class="navbar-text">
+        Welcome {{showUserName()}}
+    </span>
+</nav>
+
+<!-- Whenever we want to work with non html content - we have a concept called as 
+Interpolation Markup - {{ }} - Double curly braces -->
+
+<!-- {{10+20}} -->
